@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knowbase adalah knowledge management system sederhana untuk menyimpan, mengatur, dan menemukan pengetahuan penting.">
+  <meta name="theme-color" content="#0d1729">
+  <title>Knowbase — Knowledge Management System</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar" aria-label="Navigasi utama">
+      <div class="sidebar-brand">
+        <a class="brand-link" href="#/dashboard" aria-label="Knowbase, buka dashboard">
+          <span class="brand-mark"><span data-icon="book-open"></span></span>
+          <span class="brand-text">
+            <span class="brand-name">Knowbase</span>
+            <span class="brand-sub">Knowledge Management</span>
+          </span>
+        </a>
+        <button type="button" class="icon-btn sidebar-close" data-action="close-sidebar" aria-label="Tutup navigasi">
+          <span data-icon="x"></span>
+        </button>
+      </div>
+
+      <div class="sidebar-scroll">
+        <nav class="sidebar-nav" aria-label="Menu utama">
+          <p class="nav-label">Ruang kerja</p>
+          <a href="#/dashboard" class="nav-item" data-nav="dashboard">
+            <span class="nav-icon" data-icon="dashboard"></span>
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a href="#/knowledge" class="nav-item" data-nav="knowledge">
+            <span class="nav-icon" data-icon="book-open"></span>
+            <span class="nav-text">Semua Pengetahuan</span>
+          </a>
+          <a href="#/favorites" class="nav-item" data-nav="favorites">
+            <span class="nav-icon" data-icon="star"></span>
+            <span class="nav-text">Favorit</span>
+            <span class="nav-badge" data-nav-count="favorites">0</span>
+          </a>
+          <a href="#/recent" class="nav-item" data-nav="recent">
+            <span class="nav-icon" data-icon="clock"></span>
+            <span class="nav-text">Terbaru</span>
+          </a>
+
+          <p class="nav-label">Organisasi</p>
+          <a href="#/categories" class="nav-item" data-nav="categories">
+            <span class="nav-icon" data-icon="folder"></span>
+            <span class="nav-text">Kategori</span>
+          </a>
+          <a href="#/archive" class="nav-item" data-nav="archive">
+            <span class="nav-icon" data-icon="archive"></span>
+            <span class="nav-text">Arsip</span>
+            <span class="nav-badge" data-nav-count="archive">0</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="storage-card">
+          <span class="storage-icon" data-icon="database"></span>
+          <div class="storage-copy">
+            <span class="storage-title">Penyimpanan lokal</span>
+            <span class="storage-meta" data-storage-summary>Memuat data…</span>
+          </div>
+        </div>
+        <a href="#/settings" class="nav-item nav-item-settings" data-nav="settings">
+          <span class="nav-icon" data-icon="settings"></span>
+          <span class="nav-text">Pengaturan</span>
+        </a>
+        <p class="sidebar-version">Knowbase v1.0</p>
+      </div>
+    </aside>
+
+    <div class="sidebar-scrim" data-action="close-sidebar" hidden></div>
+
+    <div class="app-frame">
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" data-action="open-sidebar" aria-label="Buka navigasi" aria-controls="sidebar" aria-expanded="false">
+          <span data-icon="menu"></span>
+        </button>
+
+        <form id="global-search-form" class="global-search" role="search">
+          <span class="search-icon" data-icon="search"></span>
+          <input id="global-search-input" type="text" placeholder="Cari judul, isi, tag, atau kategori…" aria-label="Cari pengetahuan" autocomplete="off" spellcheck="false" maxlength="120">
+          <span class="search-kbd" aria-hidden="true">/</span>
+          <button type="button" class="search-clear" data-action="clear-search" aria-label="Bersihkan pencarian" hidden>
+            <span data-icon="x"></span>
+          </button>
+        </form>
+
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-primary btn-add" data-action="new-knowledge">
+            <span data-icon="plus"></span>
+            <span class="btn-text">Tambah Pengetahuan</span>
+          </button>
+
+          <div class="profile-wrap">
+            <button id="profile-button" type="button" class="profile-button" data-action="toggle-profile" aria-haspopup="menu" aria-expanded="false" aria-controls="profile-menu">
+              <span class="avatar" data-profile-initial>P</span>
+              <span class="profile-copy">
+                <span class="profile-name" data-profile-name>Pengguna Lokal</span>
+                <span class="profile-sub">Ruang kerja pribadi</span>
+              </span>
+              <span class="profile-chevron" data-icon="chevron-down"></span>
+            </button>
+
+            <div id="profile-menu" class="profile-menu" role="menu" hidden>
+              <div class="profile-menu-head">
+                <span class="avatar avatar-lg" data-profile-initial>P</span>
+                <div>
+                  <strong data-profile-name>Pengguna Lokal</strong>
+                  <span>Data tersimpan di perangkat ini</span>
+                </div>
+              </div>
+              <div class="profile-menu-list">
+                <a href="#/settings" class="menu-item" role="menuitem">
+                  <span data-icon="settings"></span>Pengaturan
+                </a>
+                <button type="button" class="menu-item" data-action="export-data" role="menuitem">
+                  <span data-icon="download"></span>Ekspor data
+                </button>
+              </div>
+              <p class="profile-menu-foot">Knowbase v1.0 · LocalStorage</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" class="main-content" tabindex="-1">
+        <div class="loading-state">
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Memuat ruang kerja…</span>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="dialog-root"></div>
+  <div id="toast-root" class="toast-container" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="js/utils.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/categories.js" defer></script>
+  <script src="js/knowledge.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/modals.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
